@@ -1,10 +1,12 @@
-<form method="post" action="/multiple" enctype="multipart/form-data">
+<form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Upload</button>
 </form>
 
-<p><a href="{% url 'home_page' %}">Return to home</a></p>
+<a href="{% url 'export_users_xls' %}">Export all users</a>
+
+<p><a href="{% url 'home_page' %}">Reset</a></p>
 
 <table style="width:100%">
     {% for email in emails %}
