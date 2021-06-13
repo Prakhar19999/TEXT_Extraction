@@ -1,0 +1,24 @@
+<form method="post" action="/multiple" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Upload</button>
+</form>
+
+<p><a href="{% url 'home_page' %}">Return to home</a></p>
+
+<table style="width:100%">
+    {% for email in emails %}
+    <tr>Email : {{email}}</tr>
+    {%endfor%}
+
+    <br>
+
+    {% for number in phone_number%}
+    <tr>Phone Number : {{number}}</tr>
+    {%endfor%}
+
+    <br>
+    {% if file_path %}
+    <tr>File Location : {{file_path}} </tr>
+    {%endif%}
+  </table>
